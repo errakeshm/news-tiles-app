@@ -1,0 +1,7 @@
+<div class="container-fluid" [ngStyle]="{'background-color':'black'}">
+    <div *ngIf="newsArticles" class="row">
+        <div *ngFor="let news of newsArticles" class="col-xs-2 col-sm-2 col-md-2 noPadding">
+            <app-tile [tileObject]="news"></app-tile>
+        </div>
+    </div>
+</div>
