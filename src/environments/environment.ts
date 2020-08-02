@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  isInMemApiEnabled:true,
+  isDebugEnabled:true,
+  // News API Key. Register and obtain the values
+  apiKey:"<<API_KEY>>",
+  url:{
+    primary:"http://newsapi.org/v2",
+  }
 };
 
 /*

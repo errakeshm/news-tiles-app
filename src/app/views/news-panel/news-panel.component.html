@@ -1,7 +1,8 @@
-<div class="container-fluid" [ngStyle]="{'background-color':'black'}">
+<!--<div class="container-fluid" [ngClass]="{'shift-right': (shift=='left'),'shift-none':(shift=='none')}">-->
+<div class="container-fluid" [@shift]="getAnimations()">
     <div *ngIf="newsArticles" class="row">
-        <div *ngFor="let news of newsArticles" class="col-xs-2 col-sm-2 col-md-2 noPadding">
-            <app-tile [tileObject]="news"></app-tile>
+        <div *ngFor="let news of newsArticles" [ngClass]="{'col-md-3': (shift=='left') ,'col-md-2' : (shift=='none')}" class="col-xs-12 col-sm-4 noPadding">
+            <ui-tile [tileObject]="news"></ui-tile>
         </div>
     </div>
 </div>

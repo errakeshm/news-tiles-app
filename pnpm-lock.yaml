@@ -7,6 +7,10 @@ dependencies:
   '@angular/platform-browser': 10.0.2_d1f854eeb2153e3293bb5e2e6e6814ae
   '@angular/platform-browser-dynamic': 10.0.2_a293ddc5b2fe8ef5b935b908cfa6893d
   '@angular/router': 10.0.2_3e4681de94f8acd5ea50ab5d006e1dc4
+  '@fortawesome/angular-fontawesome': 0.7.0_16e8ba9fc0f639612eeb01952ebb26a5
+  '@fortawesome/fontawesome-common-types': 0.2.30
+  '@fortawesome/fontawesome-svg-core': 1.2.30
+  '@fortawesome/free-solid-svg-icons': 5.14.0
   bootstrap: 4.5.0_jquery@3.5.1
   jquery: 3.5.1
   rxjs: 6.5.5
@@ -19,6 +23,7 @@ devDependencies:
   '@types/jasmine': 3.5.11
   '@types/jasminewd2': 2.0.8
   '@types/node': 12.12.48
+  angular-in-memory-web-api: 0.11.0_4f8c4232478978128beb61fbcf15bb1f
   codelyzer: 6.0.0_tslint@6.1.2
   jasmine-core: 3.5.0
   jasmine-spec-reporter: 5.0.2
@@ -229,7 +234,6 @@ packages:
       '@angular/core': 10.0.2_rxjs@6.5.5+zone.js@0.10.3
       rxjs: 6.5.5
       tslib: 2.0.0
-    dev: false
     peerDependencies:
       '@angular/core': 10.0.2
       rxjs: ^6.5.3
@@ -279,7 +283,6 @@ packages:
       rxjs: 6.5.5
       tslib: 2.0.0
       zone.js: 0.10.3
-    dev: false
     peerDependencies:
       rxjs: ^6.5.3
       zone.js: ~0.10.3
@@ -1218,6 +1221,39 @@ packages:
     dev: true
     resolution:
       integrity: sha512-UTCFOxC3FsFHb7lkRMVvgLzaRVamXuAs2Tz4wajva4WxtVY82eZeaUBtC2Zt95FU9TiznuC0Zk35tsim8jeVpg==
+  /@fortawesome/angular-fontawesome/0.7.0_16e8ba9fc0f639612eeb01952ebb26a5:
+    dependencies:
+      '@angular/core': 10.0.2_rxjs@6.5.5+zone.js@0.10.3
+      '@fortawesome/fontawesome-svg-core': 1.2.30
+      tslib: 2.0.0
+    dev: false
+    peerDependencies:
+      '@angular/core': ^10.0.0
+      '@fortawesome/fontawesome-svg-core': ^1.2.27
+    resolution:
+      integrity: sha512-U+eHYbKuVYrrm9SnIfl+z+6KTiI4Pu+S2OKh34JIi7C1jHhDcrVeDZISP/cpswHY7LWWDOPYeKE+yuWFlL4aVw==
+  /@fortawesome/fontawesome-common-types/0.2.30:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-TsRwpTuKwFNiPhk1UfKgw7zNPeV5RhNp2Uw3pws+9gDAkPGKrtjR1y2lI3SYn7+YzyfuNknflpBA1LRKjt7hMg==
+  /@fortawesome/fontawesome-svg-core/1.2.30:
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 0.2.30
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-E3sAXATKCSVnT17HYmZjjbcmwihrNOCkoU7dVMlasrcwiJAHxSKeZ+4WN5O+ElgO/FaYgJmASl8p9N7/B/RttA==
+  /@fortawesome/free-solid-svg-icons/5.14.0:
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 0.2.30
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-M933RDM8cecaKMWDSk3FRYdnzWGW7kBBlGNGfvqLVwcwhUPNj9gcw+xZMrqBdRqxnSXdl3zWzTCNNGEtFUq67Q==
   /@istanbuljs/schema/0.1.2:
     dev: true
     engines:
@@ -1630,6 +1666,18 @@ packages:
     dev: true
     resolution:
       integrity: sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+  /angular-in-memory-web-api/0.11.0_4f8c4232478978128beb61fbcf15bb1f:
+    dependencies:
+      '@angular/common': 10.0.2_@angular+core@10.0.2+rxjs@6.5.5
+      '@angular/core': 10.0.2_rxjs@6.5.5+zone.js@0.10.3
+      rxjs: 6.5.5
+    dev: true
+    peerDependencies:
+      '@angular/common': '>=8.0.0'
+      '@angular/core': '>=8.0.0'
+      rxjs: ^6.0.0
+    resolution:
+      integrity: sha512-QV1qYHm+Zd+wrvlcPLnAcqqGpOmCN1EUj4rRuYHpek8+QqFFdxBNuPZOJCKvU7I97z5QSKHsdc6PNKlpUQr3UA==
   /ansi-colors/3.2.4:
     dev: true
     engines:
@@ -9396,9 +9444,14 @@ specifiers:
   '@angular/platform-browser': ~10.0.2
   '@angular/platform-browser-dynamic': ~10.0.2
   '@angular/router': ~10.0.2
+  '@fortawesome/angular-fontawesome': ^0.7.0
+  '@fortawesome/fontawesome-common-types': ^0.2.30
+  '@fortawesome/fontawesome-svg-core': ^1.2.30
+  '@fortawesome/free-solid-svg-icons': ^5.14.0
   '@types/jasmine': ~3.5.0
   '@types/jasminewd2': ~2.0.3
   '@types/node': ^12.11.1
+  angular-in-memory-web-api: ^0.11.0
   bootstrap: ^4.5.0
   codelyzer: ^6.0.0-next.1
   jasmine-core: ~3.5.0

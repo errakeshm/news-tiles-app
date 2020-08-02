@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { SearchModel, HeadLineResponse } from '../../components/api/searchmodel';
-import { AppConstants } from '../../components/api/appconstants';
+import { SearchModel, HeadLineResponse, NavbarItem } from '../../components/api/searchmodel';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+
+import { AppUtilityService } from '../services/app-utility.service';
+import { faGlobe, faBicycle, faBuilding, faAtom, faFlask, faFilm, faRobot } from '@fortawesome/free-solid-svg-icons';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -13,10 +16,11 @@ export class NewsService {
   private googleNewsURL: string;
   private apiKey: string;
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private appUtilityService: AppUtilityService
   ) {
-    this.googleNewsURL = AppConstants.APP_URL;
-    this.apiKey = AppConstants.API_KEY;
+    this.googleNewsURL = this.appUtilityService.getBaseUrl();
+    this.apiKey = this.appUtilityService.getApiKey();
   }
   fetchHeadLineNews(searchInput: SearchModel): Observable<any> {
     let headLineURL: string = `${this.googleNewsURL}/top-headlines`;
@@ -27,5 +31,16 @@ export class NewsService {
     let httpHeaders = new HttpHeaders();
     httpHeaders = httpHeaders.append('X-Api-Key', this.apiKey);
     return this.http.get<any>(headLineURL, { headers: httpHeaders, params: httpParams });
+  }
+
+  fetchDefaultTopics():Observable<any>{
+    let items:NavbarItem[] = new Array();
+    items.push(new NavbarItem(faGlobe, 'Technology','Technology',1,20));
+    items.push(new NavbarItem(faBuilding, 'Business','Business',1,20));
+    items.push(new NavbarItem(faFilm, 'Entertainment','Entertainment',1,20));
+    items.push(new NavbarItem(faAtom, 'Science','Science',1,20));
+    items.push(new NavbarItem(faFlask, 'Health','Health',1,20));
+    items.push(new NavbarItem(faBicycle, 'Sports','Sports',1,20));
+    return of(items);
   }
 }

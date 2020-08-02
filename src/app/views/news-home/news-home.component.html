@@ -1,3 +1,18 @@
 <div class="mainContent">
-    <app-news-panel [searchInput]="searchInput"></app-news-panel>
+    <ui-header (sidebar)="onSidebarClick($event)">
+        <div class="app-header">
+            <img class="app-logo" src="assets/images/logo.png"/>
+        </div>
+    </ui-header>
+    <div class="news-home-content">
+        <ui-sidebar [isActive]='isSidebarActive' [position]="'left'">
+            <ul class="app-sidebar-main">
+                <li *ngFor="let item of sidebarItems" class="app-sidebar-item" [ngClass]="{'app-sidebar-item-selected':item.isSelected}" (click)="onItemClick(item.searchText, $event)">
+                    <fa-icon [icon]="item.icon"></fa-icon>
+                    <span class="app-sidebar-text">{{item.text}}</span>
+                </li>
+            </ul>
+        </ui-sidebar>
+        <app-news-panel [searchInput]="searchInput" [shift]="shift"></app-news-panel>
+    </div>
 </div>

@@ -1,8 +1,8 @@
-<div class="tile {{tileObject.animType}}" *ngIf="tileResponse" >
+<div class="ui-tile {{tileObject.animType}}" *ngIf="tileResponse" >
     <div class="inner" [ngStyle]="{'animation-delay':randomDelay +'s'}">
       <div class="face" [ngStyle]="{'animation-delay':randomDelay +'s'}">
         <img src="{{tileResponse.urlToImage}}">
-        <div class="source">{{tileResponse.sourceName}}</div>
+        <div class="ui-source">{{tileResponse.sourceName}}</div>
       </div>
       <div class="back" [ngStyle]="{'animation-delay':randomDelay +'s'}">
           <p>{{tileResponse.description}}</p>

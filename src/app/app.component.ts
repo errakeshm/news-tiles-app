@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tiles-news';
+  ngOnInit(){
+    console.log('Inside on init');
+  }
 }

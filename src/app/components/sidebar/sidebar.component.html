@@ -1,0 +1,7 @@
+<!--<div [ngClass]="{'ui-sidebar':true, 'ui-sidebar-closed':!isActive, 'ui-sidebar-open':isActive, 'ui-sidebar-left':(position == 'left')}">-->
+<div [ngClass]="{'ui-sidebar':true, 'ui-sidebar-left':(position == 'left')}" [@openLeftCloseLeft]="isActive ? 'openLeft' : 'closeLeft'">
+    <div class="ui-sidebar-content">
+        <div class="ui-sidebar-close"></div>
+        <ng-content></ng-content>
+    </div>
+</div>
