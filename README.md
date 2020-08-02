@@ -15,13 +15,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * isInMemApiEnabled : true|false
 If set as true this will enable the Angular In-Memory API, that will fetch the data from a set of dummy data rather than hitting the News API.
 Use it to reduce calls to NewsAPI
-
 * isDebugEnabled:true,
 If set then this will log the logging statements in the console
-
 * apiKey:"<<API_KEY>>"
 Obtain the API key by registering in NewsAPI.org and set the key value here
-
 * Set the News API URL
   url:{
     primary:"http://newsapi.org/v2",
