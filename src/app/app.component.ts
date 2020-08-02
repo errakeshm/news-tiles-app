@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggerService, LogLevel } from './utility/services/logger-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tiles-news';
+  constructor(public loggerService: LoggerService){
+
+  }
   ngOnInit(){
-    console.log('Inside on init');
+    this.loggerService.log(LogLevel.AUTHOR,AppComponent.name);
   }
 }

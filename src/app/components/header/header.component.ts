@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
 
   emitEvent(event){
     this._toggle = !this._toggle;
-    console.log('Inside')
     this.sidebar.emit(this._toggle);
     event.preventDefault();
   }

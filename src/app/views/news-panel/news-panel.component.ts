@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { SearchModel, HeadLineResponse } from '../../components/api/searchmodel';
 import { Observable, Subscription } from 'rxjs';
 import { NewsService } from '../../utility/services/news-service.service';
+import { LoggerService, LogLevel } from '../../utility/services/logger-service.service';
 import { AppConstants } from '../../components/api/appconstants';
 import { AppUtilityService } from 'src/app/utility/services/app-utility.service';
 import { trigger, state, transition, animate, style } from '@angular/animations';
@@ -33,7 +34,6 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
   
   @Input() set searchInput(data:SearchModel){
     this._searchData = data;
-    console.log(this._searchData)
     if(this._searchData == undefined || this._searchData == null){
       this._isInitialized = false;
     } else{
@@ -57,7 +57,8 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
   noOfArticles: number;
   constructor(
     public newsService: NewsService,
-    private appUtilityService: AppUtilityService
+    private appUtilityService: AppUtilityService,
+    private loggerService: LoggerService
   ) { }
   
   ngOnChanges(event){
@@ -66,9 +67,11 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
 
   fetchNews(){
     if (this.isInitialized()) {
+      this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, "Calling news Service");
       this.newsResponse = this.newsService.fetchHeadLineNews(this.getSearch()).subscribe(
         (response: any) => {
           this.newsArticles = (this.appUtilityService.getInMemOrRealtimeData(response)).articles.map((news: any) => {
+            this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, "Successfully Fetched News Data");
             let indvNews: HeadLineResponse = new HeadLineResponse();
             indvNews.content = news.content;
             indvNews.description = news.description;
@@ -87,6 +90,9 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
             return indvNews;
           });
           this.noOfArticles = this.newsArticles.length;
+        },
+        (error:any)=>{
+          this.loggerService.log(LogLevel.ERROR, NewsPanelComponent.name, "Unable to fetch data from News API : ");
         }
       );
     }

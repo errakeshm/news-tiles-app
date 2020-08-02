@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SearchModel, NavbarItem } from 'src/app/components/api/searchmodel';
 import { NewsService } from 'src/app/utility/services/news-service.service';
+import { LoggerService, LogLevel } from 'src/app/utility/services/logger-service.service';
 import { Subscription } from 'rxjs';
+import { NewsPanelComponent } from '../news-panel/news-panel.component';
 @Component({
   selector: 'app-news-home',
   templateUrl: './news-home.component.html',
@@ -9,7 +11,6 @@ import { Subscription } from 'rxjs';
 })
 export class NewsHomeComponent implements OnInit, OnDestroy {
 
-  title = 'newsTiles';
   searchInput:SearchModel;
   shift:string = 'left';
   isSidebarActive:Boolean = true;
@@ -17,7 +18,7 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   sidebarItems:NavbarItem[] = new Array();
   fetchTopics$:Subscription;
 
-  constructor(public newsService:NewsService){
+  constructor(public newsService:NewsService, public loggerService:LoggerService){
 
   }
   ngOnInit(){
@@ -38,6 +39,7 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   }
 
   onItemClick(searchText:string, event){
+    this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, 'Sidebar topic clicked - '+searchText);
     for(let item of this.sidebarItems){
       item.isSelected = false;
       if(item.searchText == searchText){
@@ -45,7 +47,6 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
         this.setSearchModel(item);
       }
     }
-    console.log(this.sidebarItems)
   }
 
   public setSearchModel(navbarItem:NavbarItem){
