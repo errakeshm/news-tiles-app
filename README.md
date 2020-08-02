@@ -1,13 +1,18 @@
-# TilesNews
+# News App (Based on a tile like UI)
 
 ![](tiles-news-app.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
+* Add your news api key in the AppConstants.ts
 * Do an **npm install** to install the node packages
+<<<<<<< HEAD
 * Change the configurations as per your need. All Configurations are present in environment.ts/environment.prod.ts
 * Start the server in your live development server using **npm start**
 * This is under development. More features and improvements will be added gradually.
+=======
+* Start the server in your live development server using **npm start**.
+>>>>>>> 0fee19f63c078901d525cd00fbdd43eb501a7294
 
 
 ## Configurations (environment)
@@ -28,4 +33,5 @@ Obtain the API key by registering in NewsAPI.org and set the key value here
   }
 
 ## Note
-This is for educational purpose. You are free to copy the code and edit however you like.
+* This is under development. More features and improvements will be added
+* This is for educational purpose. You are free to copy the code and edit however you like.
