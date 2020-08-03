@@ -3,7 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } fr
 import { Observable } from 'rxjs';
 import { tap, finalize } from 'rxjs/operators';
 
-import { AppUtilityService } from '../services/app-utility.service';
+import { AppUtilityService } from '../services/common/app-utility.service';
 /**
  * Sample Interceptor
  */

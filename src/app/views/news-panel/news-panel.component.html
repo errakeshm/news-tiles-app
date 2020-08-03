@@ -1,7 +1,6 @@
-<!--<div class="container-fluid" [ngClass]="{'shift-right': (shift=='left'),'shift-none':(shift=='none')}">-->
-<div class="container-fluid" [@shift]="getAnimations()">
+<div class="container-fluid" [@shiftLeftFull]="getAnimations()">
     <div *ngIf="newsArticles" class="row">
-        <div *ngFor="let news of newsArticles" [ngClass]="{'col-md-3': (shift=='left') ,'col-md-2' : (shift=='none')}" class="col-xs-12 col-sm-4 noPadding">
+        <div *ngFor="let news of newsArticles" [ngClass]="{'col-md-3': !isLeftNavbarTriggered ,'col-md-2' : isLeftNavbarTriggered}" class="col-xs-12 col-sm-4 noPadding">
             <ui-tile [tileObject]="news"></ui-tile>
         </div>
     </div>

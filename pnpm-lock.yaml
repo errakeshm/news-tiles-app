@@ -11,6 +11,7 @@ dependencies:
   '@fortawesome/fontawesome-common-types': 0.2.30
   '@fortawesome/fontawesome-svg-core': 1.2.30
   '@fortawesome/free-solid-svg-icons': 5.14.0
+  '@ngrx/store': 9.2.0_@angular+core@10.0.2+rxjs@6.5.5
   bootstrap: 4.5.0_jquery@3.5.1
   jquery: 3.5.1
   rxjs: 6.5.5
@@ -1270,6 +1271,16 @@ packages:
     dev: true
     resolution:
       integrity: sha512-TAdNkeGB5Fe4Og+ZkAr1Kvn9by2sfL44IAHFtxlh1BA1XJ5cLpO9iSNki5opWESv3l3vSHsZ9BNKuqFKbEbFaA==
+  /@ngrx/store/9.2.0_@angular+core@10.0.2+rxjs@6.5.5:
+    dependencies:
+      '@angular/core': 10.0.2_rxjs@6.5.5+zone.js@0.10.3
+      rxjs: 6.5.5
+    dev: false
+    peerDependencies:
+      '@angular/core': ^9.0.0
+      rxjs: ^6.5.3
+    resolution:
+      integrity: sha512-V8AI3mxbMztVpbZpALkLZYlGkofKcu9GaOCY5e+sZ1VcJ90oxhFjBpnmd6MuVdmhep1XAHALb1B8ZbBFn+xsgQ==
   /@ngtools/webpack/10.0.1_e35f6313e1a15749748c5bbec3f08d12:
     dependencies:
       '@angular-devkit/core': 10.0.1
@@ -9448,6 +9459,7 @@ specifiers:
   '@fortawesome/fontawesome-common-types': ^0.2.30
   '@fortawesome/fontawesome-svg-core': ^1.2.30
   '@fortawesome/free-solid-svg-icons': ^5.14.0
+  '@ngrx/store': ^9.2.0
   '@types/jasmine': ~3.5.0
   '@types/jasminewd2': ~2.0.3
   '@types/node': ^12.11.1

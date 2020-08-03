@@ -16,3 +16,9 @@
     width:20%;
     left:0px;
 }
+
+.ui-sidebar-right{
+    height:100%;
+    width:20%;
+    right:0px;
+}

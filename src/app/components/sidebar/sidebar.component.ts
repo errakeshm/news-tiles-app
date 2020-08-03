@@ -6,17 +6,17 @@ import { trigger,state, style, animate, transition } from '@angular/animations';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
   animations:[
-    trigger('openLeftCloseLeft',[
-      state('openLeft', style({
+    trigger('openClose',[
+      state('open', style({
         opacity:1
       })),
-      state('closeLeft', style({
+      state('close', style({
         opacity:0
       })),
-      transition('openLeft=>closeLeft',[
+      transition('open=>close',[
         animate('200ms ease-in')
       ]),
-      transition('closeLeft=>openLeft',[
+      transition('close=>open',[
         animate('200ms ease-out')
       ])
     ])

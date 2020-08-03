@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SearchModel, HeadLineResponse, NavbarItem } from '../../components/api/searchmodel';
+import { SearchModel, HeadLineResponse, NavbarItem } from '../../../components/api/searchmodel';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-import { AppUtilityService } from '../services/app-utility.service';
+import { AppUtilityService } from '../common/app-utility.service';
 import { faGlobe, faBicycle, faBuilding, faAtom, faFlask, faFilm, faRobot } from '@fortawesome/free-solid-svg-icons';
 
 const httpOptions = {

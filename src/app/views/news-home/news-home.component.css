@@ -27,6 +27,9 @@
     color:#212529;
 }
 
+.app-sidebar-main .app-sidebar-item:focus{
+    outline: none;
+}
 .app-sidebar-main .app-sidebar-item .app-sidebar-text{
     margin-left: 1rem;
 }

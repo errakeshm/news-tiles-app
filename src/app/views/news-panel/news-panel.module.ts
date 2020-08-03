@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { NewsPanelComponent } from './news-panel.component';
 import { TileModule } from 'src/app/components/tile/tile.module';
 
-
 @NgModule({
   declarations: [
     NewsPanelComponent
   ],
   imports: [
     CommonModule,
-    TileModule
+    TileModule,
+    //NewsPanelRoutingModule
   ],
   exports :[
     NewsPanelComponent

@@ -15,7 +15,7 @@ export class LoggerService {
 
   constructor(private appUtilityService: AppUtilityService) { }
   
-  public log(logLevel : LogLevel, className:string, message?:string):void{
+  public log(logLevel : LogLevel, className:string, message?:Object):void{
     if(this.appUtilityService.isDebugEnabled()){
       if(logLevel == LogLevel.ERROR){
         console.error(`${className} : ${logLevel} - ${message}`)

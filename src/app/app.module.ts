@@ -13,6 +13,9 @@ import { environment } from 'src/environments/environment';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemNewsDbServiceService } from './utility/services/inmemdb/in-mem-news-db-service.service';
 
+import { StoreModule } from '@ngrx/store';
+import { pagePropertiesReducer } from './utility/reducers/page.reducer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +25,8 @@ import { InMemNewsDbServiceService } from './utility/services/inmemdb/in-mem-new
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    environment.isInMemApiEnabled ? InMemoryWebApiModule.forRoot(InMemNewsDbServiceService, { delay: 2000 }) : []
+    StoreModule.forRoot({pagePropertiesReducer}),
+    environment.isInMemApiEnabled ? InMemoryWebApiModule.forRoot(InMemNewsDbServiceService, { delay: 1000 }) : []
   ],
   providers: [ HTTP_INTERCEPTOR_PROVIDERS ],
   bootstrap: [AppComponent]

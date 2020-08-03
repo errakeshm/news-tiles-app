@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AppConstants } from '../../components/api/appconstants';
 
 @Injectable({
   providedIn: 'root'

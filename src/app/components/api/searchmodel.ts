@@ -5,7 +5,19 @@ export class SearchModel{
     page:number;
     pageSize:number;
     country:string;
-    constructor(){}
+    constructor(category?:string, page?:number, pageSize?:number, country?:string){
+        this.category = category;
+        this.page = page;
+        this.pageSize = pageSize;
+        this.country = country;
+    }
+    
+}
+
+export class SearchParamModel extends SearchModel{
+    constructor(category?:string, page?:number, pageSize?:number, country?:string){
+        super(category, page, pageSize, country);
+    }
 }
 
 export class HeadLineResponse{
@@ -36,4 +48,10 @@ export class NavbarItem{
         if(isSelected)
             this.isSelected = isSelected;
     }
+}
+
+export enum NewsPanelShiftDirection{
+    LEFT = 'LEFT',
+    RIGHT = 'RIGHT',
+    NONE = 'NONE'
 }
