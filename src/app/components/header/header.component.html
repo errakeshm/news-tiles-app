@@ -1,6 +1,6 @@
 <div class="ui-header">
     <div class="ui-header-content">
-        <button [ngClass]="{'ui-header-hamburger-open':isSWOpen,'ui-header-hamburger-closed':!isSWOpen}" class="ui-header-hamburger">
+        <button [@rippleAnimation]="animationState" [ngClass]="{'ui-header-hamburger-open':isSWOpen,'ui-header-hamburger-closed':!isSWOpen}" class="ui-header-hamburger ripple">
             <fa-icon [icon]="faBars" (click)="emitEvent($event)"></fa-icon>
         </button>
         <ng-content class="ui-header-content"></ng-content>

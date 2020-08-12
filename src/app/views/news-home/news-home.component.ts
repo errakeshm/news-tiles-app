@@ -5,10 +5,16 @@ import { LoggerService, LogLevel } from 'src/app/utility/services/common/logger.
 import { PageReducerService } from '../../utility/services/reducer/page-reducer.service';
 import { Subscription } from 'rxjs';
 import { NewsPanelComponent } from '../news-panel/news-panel.component';
+import { rippleAnimation } from 'src/app/animations/animations';
 @Component({
   selector: 'app-news-home',
   templateUrl: './news-home.component.html',
-  styleUrls: ['./news-home.component.css']
+  styleUrls: ['./news-home.component.css'],
+  animations:[
+    rippleAnimation({
+      hoverColor: '#9a67ea'
+    })
+  ]
 })
 export class NewsHomeComponent implements OnInit, OnDestroy {
 
@@ -16,6 +22,7 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   leftSidebarActive: Boolean = true;
   sidebarItems: NavbarItem[] = new Array();
   fetchTopics$: Subscription;
+  animationState: boolean = false;
 
   constructor(public newsService: NewsService,
     public loggerService: LoggerService,
@@ -43,6 +50,7 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
    */
   onItemClick(searchText: string, event) {
     this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, 'Sidebar topic clicked - ' + searchText);
+    this.animationState = !this.animationState;
     for (let item of this.sidebarItems) {
       item.isSelected = false;
       if (item.searchText == searchText) {

@@ -12,3 +12,9 @@
 body{
     background-color: white;
 }
+:root{ 
+    --theme-primary:#673ab7;
+    /*#6200e;*/
+    --theme-secondary:#9a67ea;
+    --theme-menu:#320b86;
+}
