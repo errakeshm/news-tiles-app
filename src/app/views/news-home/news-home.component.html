@@ -9,7 +9,7 @@
             <ul class="app-sidebar-main">
                 <li *ngFor="let item of sidebarItems" class="app-sidebar-item" 
                         [routerLink]="['newspanel', getParamList(item)]">
-                    <fa-icon [icon]="item.icon"></fa-icon>
+                    <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
                     <span class="app-sidebar-text">{{item.text}}</span>
                 </li>
             </ul>
