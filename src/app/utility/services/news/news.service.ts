@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SearchModel, HeadLineResponse, NavbarItem } from '../../../components/api/searchmodel';
+import { SearchModel, HeadLineResponse, NavbarItem } from '../../../components/api/search.model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 

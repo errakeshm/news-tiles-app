@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SearchModel, NavbarItem, SearchParamModel } from 'src/app/components/api/searchmodel';
+import { SearchModel, NavbarItem, SearchParamModel } from 'src/app/components/api/search.model';
 import { NewsService } from 'src/app/utility/services/news/news.service';
 import { LoggerService, LogLevel } from 'src/app/utility/services/common/logger.service';
 import { PageReducerService } from '../../utility/services/reducer/page-reducer.service';

@@ -14,7 +14,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemNewsDbServiceService } from './utility/services/inmemdb/in-mem-news-db-service.service';
 
 import { StoreModule } from '@ngrx/store';
-import { pagePropertiesReducer } from './utility/reducers/page.reducer';
+import { reducers } from './utility/store/reducers/index';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { pagePropertiesReducer } from './utility/reducers/page.reducer';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({pagePropertiesReducer}),
+    StoreModule.forRoot(reducers),
     environment.isInMemApiEnabled ? InMemoryWebApiModule.forRoot(InMemNewsDbServiceService, { delay: 1000 }) : []
   ],
   providers: [ HTTP_INTERCEPTOR_PROVIDERS ],

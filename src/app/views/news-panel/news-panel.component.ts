@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { SearchModel, HeadLineResponse, SearchParamModel, NewsPanelShiftDirection } from '../../components/api/searchmodel';
+import { SearchModel, HeadLineResponse, SearchParamModel, NewsPanelShiftDirection } from '../../components/api/search.model';
 import { Observable, Subscription, of } from 'rxjs';
 import { NewsService } from '../../utility/services/news/news.service';
 import { LoggerService, LogLevel } from '../../utility/services/common/logger.service';
@@ -74,7 +74,6 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
     this.searchSubscriber$ = this.route.paramMap.pipe(
       switchMap(
         (params) => {
-          console.log(params)
           let searchModel: SearchModel = new SearchModel(String(params.get('category')),
             Number(params.get('page')),
             Number(params.get('pageSize')),
@@ -89,9 +88,8 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.pageReducerSubscriber$ = this.pageReducerService.isLeftSidebarEnabled().pipe(
-      tap(m=>console.log('Testing ' , m))
-    ).subscribe(
+    this.pageReducerSubscriber$ = this.pageReducerService.isLeftSidebarEnabled()
+    .subscribe(
       isEnabled => {
         if (isEnabled != undefined) {
           this.isLeftNavbarTriggered = isEnabled;

@@ -7,8 +7,7 @@ import { NewsHomeComponent } from './news-home/news-home.component';
 import { NewsHomeModule } from './news-home/news-home.module';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     NewsRoutingModule

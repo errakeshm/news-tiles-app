@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchModel,HeadLineResponse } from '../api/searchmodel';
+import { SearchModel,HeadLineResponse } from '../api/search.model';
 
 @Component({
   selector: 'ui-tile',
