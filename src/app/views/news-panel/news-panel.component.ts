@@ -97,7 +97,9 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
       }
     )
   }
-
+  /**
+   * Release resources occupied
+   */
   ngOnDestroy() {
     this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, 'Component destroyed')
     if (this.searchSubscriber$ !== undefined && !this.searchSubscriber$.closed) {
@@ -112,7 +114,9 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
       this.pageReducerSubscriber$.unsubscribe();
     }
   }
-
+  /**
+   * Fetch the news based on the selected topic
+   */
   fetchNews() {
     if (this.isInitialized()) {
       this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, "Calling news Service");
@@ -129,7 +133,7 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
             indvNews.url = news.url;
             indvNews.urlToImage = news.urlToImage;
             if (indvNews.urlToImage == null) {
-              indvNews.urlToImage = "/assets/images/clouds-5368435_640.jpg"
+              indvNews.urlToImage = "/assets/images/clouds.jpg"
             }
             if (indvNews.description == null) {
               indvNews.description = indvNews.title;
@@ -146,7 +150,10 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
       );
     }
   }
-
+  /**
+   * Set the animations (whether to rotate or slide) randomly
+   * @param news 
+   */
   private static setAnimations(news: HeadLineResponse) {
     let type = Math.floor(Math.random() * AppConstants.VARIANCE_TRANSITION_RATE.MAX) + 1;
     if (type >= AppConstants.VARIANCE_TRANSITION_RATE.MIN)
@@ -154,7 +161,9 @@ export class NewsPanelComponent implements OnInit, OnDestroy {
     else
       news.animType = "ui-tile-slider";
   }
-
+  /**
+   * Get the sidebar animation
+   */
   getAnimations() {
     if (this.isLeftNavbarTriggered) {
       return 'full'

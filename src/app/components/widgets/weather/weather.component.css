@@ -1,0 +1,68 @@
+
+.simple-weather-container{
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    margin:1.5rem;
+}
+
+.simple-weather-header{
+    height:40%;
+    width:100%;
+    display:flex;
+    align-items: center;
+}
+.simple-weather-temperature{
+    font-size: 3rem;
+    color:black;
+    font-weight: 600;
+}
+.simple-weather-condition{
+    font-size:1rem;
+    margin-left: 0.2rem;
+    color:blue;
+    font-weight:600;
+}
+.simple-weather-body{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.simple-weather-body div{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color:white;
+    padding:0.2rem;
+    width:33%;
+    text-align: center;
+}
+.simple-weather-body div .simple-weather-body-item{
+    display: block;
+}
+.simple-weather-body-item span{
+    display: inline;
+    padding:0.1rem;
+}
+
+.line{
+    background-color:white;
+    font-size:1rem;
+    width:100%;
+}
+.simple-weather-general-mini{
+    display: inline-block;
+    margin-left: 25%;
+}
+
+.mini-icon{
+    width:1.2rem;
+    font-weight: 600;
+    margin-right:0.15rem;
+}
+
+.simple-weather-general-mini .text{
+    color:white;
+    font-weight: 600;;
+}

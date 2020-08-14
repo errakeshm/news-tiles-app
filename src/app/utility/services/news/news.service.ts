@@ -19,8 +19,8 @@ export class NewsService {
     private http: HttpClient,
     private appUtilityService: AppUtilityService
   ) {
-    this.googleNewsURL = this.appUtilityService.getBaseUrl();
-    this.apiKey = this.appUtilityService.getApiKey();
+    this.googleNewsURL = this.appUtilityService.getNewsAPiUrl();
+    this.apiKey = this.appUtilityService.getNewsApiKey();
   }
   fetchHeadLineNews(searchInput: SearchModel): Observable<any> {
     let headLineURL: string = `${this.googleNewsURL}/top-headlines`;

@@ -23,11 +23,19 @@ export class AppUtilityService {
     return response;
   }
 
-  public getBaseUrl(){
-    return environment.url.primary;
+  public getNewsAPiUrl(){
+    return environment.url.news;
   }
 
-  public getApiKey(){
-    return environment.apiKey;
+  public getOpenWeatherUrl(){
+    return environment.url.weather;
+  }
+
+  public getNewsApiKey(){
+    return environment.keys.news;
+  }
+
+  public getWeatherApiKey(){
+    return environment.keys.weather;
   }
 }

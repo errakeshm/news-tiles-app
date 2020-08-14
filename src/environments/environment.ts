@@ -7,9 +7,14 @@ export const environment = {
   isInMemApiEnabled:true,
   isDebugEnabled:true,
   // News API Key. Register and obtain the values
-  apiKey:"<<API_KEY>>",
+  keys:{
+    news:"<<API_KEY>>",
+    weather:"<<API_KEY>>"
+  },
   url:{
-    primary:"http://newsapi.org/v2",
+    news:"http://newsapi.org/v2",
+   // weather:"https://api.openweathermap.org/data/2.5"//onecall?lat=20.2620425&lon=85.81594989999999&&units=metric&appid=20c0fa8665afa77aaf782456eaaa7550"
+   weather:"https://api.openweathermap.org/data"
   }
 };
 

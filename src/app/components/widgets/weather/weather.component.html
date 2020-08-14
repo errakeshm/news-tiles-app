@@ -1,0 +1,27 @@
+<div class="simple-weather-main">
+    <div class="simple-weather-container" [ngStyle] = "panelStyle" *ngIf="weatherModel"
+        [style.background]="'url(/assets/images/'+getImage(weatherModel.current.weather[0].icon)+')'"
+        [style.backgroundSize]="'cover'">
+        <div class="simple-weather-header">
+            <div class="simple-weather-temperature">
+                <span class="text">{{weatherModel.current.temp}}</span><span class="wi wi-celsius"></span>
+            </div>
+            <div class="simple-weather-general" >
+                <span class="simple-weather-general-mini">
+                    <span class="mini-icon wi wi-windy"></span> <span class="text">{{weatherModel.current.wind_speed}} m/s</span>
+                </span>
+                <span class="simple-weather-general-mini">
+                    <span class="mini-icon wi wi-humidity"></span> <span class="text">{{weatherModel.current.humidity}}</span>
+                </span>
+            </div>
+        </div>
+        <hr class="line" />
+        <div class="simple-weather-body">
+            <div *ngFor="let count of [0,1,2]">
+                <span class="simple-weather-body-item {{getIcon(weatherModel.daily[count].weather[0].icon)}}"></span>
+                <div class="simple-weather-body-item"><span>{{weatherModel.daily[count].temp.day | round}}</span><span class="mini-icon wi wi-celsius"></span></div>
+                
+            </div>
+        </div>
+    </div>
+</div>

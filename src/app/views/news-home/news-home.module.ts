@@ -7,7 +7,7 @@ import { NewsHomeComponent } from './news-home.component';
 import { SidebarModule } from '../../components/sidebar/sidebar.module';
 import { HeaderModule } from '../../components/header/header.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { WeatherPanelModule } from '../weather-panel/weather-panel.module';
+import { WeatherModule } from '../../components/widgets/weather/weather.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { WeatherPanelModule } from '../weather-panel/weather-panel.module';
     HeaderModule,
     NewsPanelModule,
     FontAwesomeModule,
-    WeatherPanelModule,
+    WeatherModule,
     NewsHomeRoutingModule
   ]
 })

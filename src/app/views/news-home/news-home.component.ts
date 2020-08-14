@@ -3,9 +3,12 @@ import { SearchModel, NavbarItem, SearchParamModel } from 'src/app/components/ap
 import { NewsService } from 'src/app/utility/services/news/news.service';
 import { LoggerService, LogLevel } from 'src/app/utility/services/common/logger.service';
 import { PageReducerService } from '../../utility/services/reducer/page-reducer.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Subscriber, Subject } from 'rxjs';
 import { NewsPanelComponent } from '../news-panel/news-panel.component';
 import { rippleAnimation } from 'src/app/animations/animations';
+import { LocationReducerService } from 'src/app/utility/services/reducer/location-reducer.service';
+import { takeUntil } from 'rxjs/operators';
+import { ILocationCoordinates } from 'src/app/components/api/geolocation.model';
 @Component({
   selector: 'app-news-home',
   templateUrl: './news-home.component.html',
@@ -21,20 +24,31 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   searchInput: SearchModel;
   leftSidebarActive: Boolean = true;
   sidebarItems: NavbarItem[] = new Array();
-  fetchTopics$: Subscription;
+  //fetchTopics$: Subscription;
+  unsubscriber = new Subject();
   animationState: boolean = false;
-
+  coordinates:ILocationCoordinates;
   constructor(public newsService: NewsService,
     public loggerService: LoggerService,
-    private pageReducerService: PageReducerService) {
+    private pageReducerService: PageReducerService,
+    private locationReducerService:LocationReducerService) {
 
   }
   ngOnInit() {
-    this.fetchTopics$ = this.newsService.fetchDefaultTopics().subscribe(m => {
+    //this.fetchTopics$ = 
+    this.newsService.fetchDefaultTopics().pipe(takeUntil(this.unsubscriber)).subscribe(m => {
       this.sidebarItems = m
       this.setSearchModel(this.sidebarItems[0]);
     });
     this.pageReducerService.leftSidebarTriggered();
+
+    this.locationReducerService.getCurrentLocation().pipe(
+      takeUntil(this.unsubscriber)
+    ).subscribe(
+      (coords: ILocationCoordinates) => {
+         this.coordinates = coords;
+      }
+    )
   }
 
   onHamburgerClick(event) {
@@ -75,6 +89,8 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.fetchTopics$.unsubscribe();
+    //this.fetchTopics$.unsubscribe();
+    this.unsubscriber.next();
+    this.unsubscriber.complete();
   }
 }

@@ -29,8 +29,10 @@ Obtain the API key by registering in NewsAPI.org and set the key value here
 * Components, Services, Pipes
 * Angular Animations
 * Angular Routing
-* Redux State management
-* 
+* Redux State management, MultiReducers
+* Angular In Memory for Development
+* Reactive concepts using rxjs
+* CSS Animations
 
 
 ## Note
