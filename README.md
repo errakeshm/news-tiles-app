@@ -17,12 +17,19 @@ If set as true this will enable the Angular In-Memory API, that will fetch the d
 Use it to reduce calls to NewsAPI
 * isDebugEnabled:true,
 If set then this will log the logging statements in the console
-* apiKey:"<<API_KEY>>"
+* keys.news:"<<API_KEY>>"
 Obtain the API key by registering in NewsAPI.org and set the key value here
+* keys.weather:"<<API_KEY>>"
+Obtain the API key by registering in OpenWeather API and set the key value jhere
 * Set the News API URL
   url:{
-    primary:"http://newsapi.org/v2",
+    news:"http://newsapi.org/v2",
   }
+* Set the Open weather api url
+  url:{
+    weather:'...'
+  }
+
 
 
 ## Concepts Utilized
