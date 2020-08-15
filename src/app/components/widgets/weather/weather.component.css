@@ -52,8 +52,9 @@
     width:100%;
 }
 .simple-weather-general-mini{
-    display: inline-block;
-    margin-left: 25%;
+    display: block;
+    position:relative;
+    left:90%;
 }
 
 .mini-icon{

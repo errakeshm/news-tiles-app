@@ -5,7 +5,7 @@ export class SearchModel{
     page:number;
     pageSize:number;
     country:string;
-    constructor(category?:string, page?:number, pageSize?:number, country?:string){
+    constructor(category?:string, page?:number, pageSize?:number, country?:string, isSelected:boolean = false){
         this.category = category;
         this.page = page;
         this.pageSize = pageSize;
@@ -38,15 +38,14 @@ export class NavbarItem{
     searchText:string;
     page:number;
     pageSize:number;
-    isSelected:Boolean = false;
-    constructor(icon:IconDefinition, text:string, searchText:string, page:number, pageSize:number, isSelected?:Boolean){
+    isSelected:Boolean;
+    constructor(icon:IconDefinition, text:string, searchText:string, page:number, pageSize:number, isSelected:Boolean = false){
         this.icon = icon;
         this.text = text;
         this.searchText = searchText;
         this.page = page;
         this.pageSize = pageSize;
-        if(isSelected)
-            this.isSelected = isSelected;
+        this.isSelected = isSelected;
     }
 }
 

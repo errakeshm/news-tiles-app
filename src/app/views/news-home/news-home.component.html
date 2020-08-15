@@ -8,7 +8,7 @@
         <ui-sidebar [isActive]='leftSidebarActive' [position]="'left'">
             <ul class="app-sidebar-main">
                 <li *ngFor="let item of sidebarItems" class="app-sidebar-item" 
-                        [routerLink]="['newspanel', getParamList(item)]">
+                        [routerLink]="['newspanel', getParamList(item)]" (click)="onItemClick(item.searchText)" [ngClass]="{'app-sidebar-item-selected' : item.isSelected }">
                     <fa-icon [icon]="item.icon" [fixedWidth]="true"></fa-icon>
                     <span class="app-sidebar-text">{{item.text}}</span>
                 </li>

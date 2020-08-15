@@ -40,7 +40,7 @@
     margin-left: 1rem;
 }
 
-.app-sidebar-main .app-sidebar-item:hover, .app-sidebar-routed-link{
+.app-sidebar-main .app-sidebar-item:hover {
     border-radius: 1rem 20rem 20rem 1rem;
     -moz-border-radius: 1rem 20rem 20rem 1rem;
     -webkit-border-radius: 1rem 20rem 20rem 1rem;
@@ -55,7 +55,6 @@
     -moz-border-radius: 1rem 20rem 20rem 1rem;
     -webkit-border-radius: 1rem 20rem 20rem 1rem;
     background-color:rgba(66,133,244,0.149);
-    font-weight:400;
+    font-weight: 400;
     color:rgba(98, 0, 238, 0.87);
-    background-color:#6200ee;
 }

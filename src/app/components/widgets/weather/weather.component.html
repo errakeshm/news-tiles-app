@@ -7,17 +7,17 @@
                 <span class="text">{{weatherModel.current.temp}}</span><span class="wi wi-celsius"></span>
             </div>
             <div class="simple-weather-general" >
-                <span class="simple-weather-general-mini">
+                <div class="simple-weather-general-mini">
                     <span class="mini-icon wi wi-windy"></span> <span class="text">{{weatherModel.current.wind_speed}} m/s</span>
-                </span>
-                <span class="simple-weather-general-mini">
+                </div>
+                <div class="simple-weather-general-mini">
                     <span class="mini-icon wi wi-humidity"></span> <span class="text">{{weatherModel.current.humidity}}</span>
-                </span>
+                </div>
             </div>
         </div>
         <hr class="line" />
         <div class="simple-weather-body">
-            <div *ngFor="let count of [0,1,2]">
+            <div *ngFor="let in of getDailyForecastCount(); let count = index">
                 <span class="simple-weather-body-item {{getIcon(weatherModel.daily[count].weather[0].icon)}}"></span>
                 <div class="simple-weather-body-item"><span>{{weatherModel.daily[count].temp.day | round}}</span><span class="mini-icon wi wi-celsius"></span></div>
                 

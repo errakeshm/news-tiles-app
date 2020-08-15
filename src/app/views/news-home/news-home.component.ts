@@ -9,6 +9,7 @@ import { rippleAnimation } from 'src/app/animations/animations';
 import { LocationReducerService } from 'src/app/utility/services/reducer/location-reducer.service';
 import { takeUntil } from 'rxjs/operators';
 import { ILocationCoordinates } from 'src/app/components/api/geolocation.model';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-news-home',
   templateUrl: './news-home.component.html',
@@ -24,21 +25,23 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   searchInput: SearchModel;
   leftSidebarActive: Boolean = true;
   sidebarItems: NavbarItem[] = new Array();
-  //fetchTopics$: Subscription;
   unsubscriber = new Subject();
   animationState: boolean = false;
   coordinates:ILocationCoordinates;
   constructor(public newsService: NewsService,
     public loggerService: LoggerService,
     private pageReducerService: PageReducerService,
-    private locationReducerService:LocationReducerService) {
+    private locationReducerService:LocationReducerService,
+    private router: Router,
+    private activatedRoute : ActivatedRoute) {
 
   }
   ngOnInit() {
-    //this.fetchTopics$ = 
     this.newsService.fetchDefaultTopics().pipe(takeUntil(this.unsubscriber)).subscribe(m => {
       this.sidebarItems = m
       this.setSearchModel(this.sidebarItems[0]);
+      this.sidebarItems[0].isSelected = true;
+      this.router.navigate(['newspanel', this.getParamList(this.sidebarItems[0])], {relativeTo : this.activatedRoute})
     });
     this.pageReducerService.leftSidebarTriggered();
 
@@ -64,12 +67,12 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
    */
   onItemClick(searchText: string, event) {
     this.loggerService.log(LogLevel.INFO, NewsPanelComponent.name, 'Sidebar topic clicked - ' + searchText);
-    this.animationState = !this.animationState;
+    console.log(searchText);
+    //this.animationState = !this.animationState;
     for (let item of this.sidebarItems) {
       item.isSelected = false;
       if (item.searchText == searchText) {
         item.isSelected = true;
-        this.setSearchModel(item);
       }
     }
   }
@@ -89,7 +92,6 @@ export class NewsHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    //this.fetchTopics$.unsubscribe();
     this.unsubscriber.next();
     this.unsubscriber.complete();
   }

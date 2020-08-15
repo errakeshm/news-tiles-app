@@ -6,6 +6,9 @@ const routes: Routes = [
   { 
     path: "tilenews", 
     loadChildren : ()=> import('./views/news.module').then(m=>m.NewsModule) 
+  },
+  {
+    path:'', redirectTo:'tilenews', pathMatch:'full'
   }
 ];
 

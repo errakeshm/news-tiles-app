@@ -29,6 +29,8 @@ export class WeatherComponent implements OnInit {
     return this.pStyle;
   }
 
+  @Input() dailyForecastCount: number = 3;
+
   locationCoordinates:ILocationCoordinates;
   weatherModel:IWeatherModel;
   pStyle:string;
@@ -59,4 +61,7 @@ export class WeatherComponent implements OnInit {
     return AppConstants.WeatherCodeImgMap[key].icon;
   }
 
+  getDailyForecastCount(){
+    return new Array(this.dailyForecastCount);
+  }
 }
