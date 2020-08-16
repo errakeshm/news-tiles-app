@@ -58,3 +58,21 @@
     font-weight: 400;
     color:rgba(98, 0, 238, 0.87);
 }
+
+@media screen and (max-width:1366px){
+    .app-logo{
+        height:4rem;
+    }
+}
+
+@media screen and (max-width:768px){
+    /*.app-logo{
+        height:4rem;
+    }*/
+}
+
+@media screen and (max-width:540px){
+    /*.app-logo{
+        height:4rem;
+    }*/
+}

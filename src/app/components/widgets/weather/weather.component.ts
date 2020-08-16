@@ -4,11 +4,28 @@ import { LocationService } from '../../../utility/services/location/location.ser
 import { WeatherService } from '../../../utility/services/weather/weather.service';
 import { ILocationCoordinates } from 'src/app/components/api/geolocation.model';
 import { IWeatherModel } from '../../api/weather.model';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'weather-widget',
   templateUrl: './weather.component.html',
-  styleUrls: ['./weather.component.css']
+  styleUrls: ['./weather.component.css'],
+  animations:[
+    trigger('openClose',[
+      state('open', style({
+        opacity:1
+      })),
+      state('close', style({
+        opacity:0
+      })),
+      transition('open=>close',[
+        animate('200ms ease-in')
+      ]),
+      transition('close=>open',[
+        animate('200ms ease-out')
+      ])
+    ])
+  ]
 })
 export class WeatherComponent implements OnInit {
 
@@ -24,6 +41,7 @@ export class WeatherComponent implements OnInit {
   @Input() set panelStyle(pStyle:string){
     this.pStyle = pStyle;
   }
+  @Input() isActive:boolean = true;
 
   get panelStyle(){
     return this.pStyle;

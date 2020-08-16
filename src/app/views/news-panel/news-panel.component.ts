@@ -22,7 +22,7 @@ import { switchMap, tap } from 'rxjs/operators';
         marginRight: 0
       })),
       state('left', style({
-        width: '60%',
+        width: '80%',
         marginLeft: '20%',
       })),
       transition('full=>left', [

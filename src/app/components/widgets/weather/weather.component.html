@@ -1,7 +1,8 @@
 <div class="simple-weather-main">
     <div class="simple-weather-container" [ngStyle] = "panelStyle" *ngIf="weatherModel"
         [style.background]="'url(/assets/images/'+getImage(weatherModel.current.weather[0].icon)+')'"
-        [style.backgroundSize]="'cover'">
+        [style.backgroundSize]="'cover'"
+        [@openClose]="isActive ? 'open' : 'close'">
         <div class="simple-weather-header">
             <div class="simple-weather-temperature">
                 <span class="text">{{weatherModel.current.temp}}</span><span class="wi wi-celsius"></span>

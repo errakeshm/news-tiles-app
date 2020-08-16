@@ -49,6 +49,16 @@ export class NavbarItem{
     }
 }
 
+export interface FeatureButton {
+    name : string;
+    icon: IconDefinition;
+}
+
+export interface INameValue{
+    name: string;
+    value: any;
+}
+
 export enum NewsPanelShiftDirection{
     LEFT = 'LEFT',
     RIGHT = 'RIGHT',

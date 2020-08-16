@@ -1,5 +1,5 @@
 <div [ngClass]="{'ui-sidebar':true, 'ui-sidebar-left':(position == 'left'), 'ui-sidebar-right':(position == 'right')}" 
-    [@openClose]="isActive ? 'open' : 'close'">
+    [@openClose]="isActive ? 'open' : 'close'" [ngStyle]="panelStyle">
     <div class="ui-sidebar-content">
         <ng-content></ng-content>
     </div>

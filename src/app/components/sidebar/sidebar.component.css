@@ -23,3 +23,25 @@
     width:20%;
     right:0px;
 }
+
+
+@media screen and (max-width:1366px){
+    .ui-sidebar-left, .ui-sidebar-right{
+        width:30%;
+        z-index:990;
+    }
+}
+
+@media screen and (max-width:768px){
+    .ui-sidebar-left, .ui-sidebar-right{
+        width:40%;
+        z-index:990;
+    }
+}
+
+@media screen and (max-width:540px){
+    .ui-sidebar-left, .ui-sidebar-right{
+        width:100%;
+        z-index:990;
+    }
+}

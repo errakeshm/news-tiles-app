@@ -31,13 +31,13 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       );
 
-    this.locationReducerService.getCurrentLocation().pipe(
+    /*this.locationReducerService.getCurrentLocation().pipe(
       takeUntil(this.unsubscriber)
     ).subscribe(
       (coords: ILocationCoordinates) => {
          this.loggerService.log(LogLevel.INFO, AppComponent.name, coords.latitude + ' - ' + coords.longitude);
       }
-    )
+    )*/
   }
 
   ngOnDestroy() {

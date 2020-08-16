@@ -1,8 +1,13 @@
 <div class="ui-header">
     <div class="ui-header-content">
-        <button [@rippleAnimation]="animationState" [ngClass]="{'ui-header-hamburger-open':isSWOpen,'ui-header-hamburger-closed':!isSWOpen}" class="ui-header-hamburger ripple">
-            <fa-icon [icon]="faBars" (click)="emitEvent($event)"></fa-icon>
+        <button [@rippleAnimation]="featureButtonToggle['hamburger']" class="ui-header-hamburger ripple">
+            <fa-icon [icon]="faBars" (click)="emitEvent('hamburger',$event)"></fa-icon>
         </button>
         <ng-content class="ui-header-content"></ng-content>
+        <div *ngIf="enableFeatureButton" [ngClass]="{'ui-header-featurebutton' : true}">
+            <button [@rippleAnimation]="featureButtonToggle[button.name]"  *ngFor="let button of featureButtonList" class="ui-header-hamburger ripple">
+                <fa-icon [icon]="button.icon" (click)="emitEvent(button.name, $event)"></fa-icon>
+            </button>
+        </div>
     </div>
 </div>

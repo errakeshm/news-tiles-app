@@ -8,10 +8,12 @@ import { trigger,state, style, animate, transition } from '@angular/animations';
   animations:[
     trigger('openClose',[
       state('open', style({
-        opacity:1
+        opacity:1,
+        display:'relative'
       })),
       state('close', style({
-        opacity:0
+        opacity:0,
+        display:'none'
       })),
       transition('open=>close',[
         animate('200ms ease-in')
@@ -27,8 +29,9 @@ export class SidebarComponent implements OnInit {
   constructor() { }
   @Input() position :string ="left";
   @Input() isActive:boolean = false;
-  
+  @Input() panelStyle:string;
   ngOnInit(): void {
+      console.log(this.panelStyle)
   }
 
 }

@@ -1,11 +1,11 @@
 <div class="mainContent">
-    <ui-header (sidebar)="onHamburgerClick($event)">
-        <div class="app-logo-header" [ngClass]= "{'opacity1':leftSidebarActive, 'opacity0':!leftSidebarActive }">
+    <ui-header (sidebar)="onHamburgerClick($event)" [featureButtonList]="featureButtons" [enableFeatureButton]="true">
+        <div class="app-logo-header" [ngClass]= "{'opacity1':featureButtonToggle['hamburger'], 'opacity0':!featureButtonToggle['hamburger'] }">
             <img class="app-logo" src="assets/images/logo.png"/>
         </div>
     </ui-header>
     <div class="news-home-content">
-        <ui-sidebar [isActive]='leftSidebarActive' [position]="'left'">
+        <ui-sidebar [isActive]="featureButtonToggle['hamburger']" [position]="'left'">
             <ul class="app-sidebar-main">
                 <li *ngFor="let item of sidebarItems" class="app-sidebar-item" 
                         [routerLink]="['newspanel', getParamList(item)]" (click)="onItemClick(item.searchText)" [ngClass]="{'app-sidebar-item-selected' : item.isSelected }">
@@ -14,7 +14,7 @@
                 </li>
             </ul>
         </ui-sidebar>
-        <ui-sidebar  [isActive]='leftSidebarActive' [position]="'right'">
+        <ui-sidebar  [isActive]="featureButtonToggle['widget']" [position]="'right'" [panelStyle]="{'z-index':990}">
             <weather-widget [configuration]="coordinates" [panelStyle]="{'height':'15rem', 'width':'16rem' }"></weather-widget>
         </ui-sidebar>
         <router-outlet></router-outlet>
