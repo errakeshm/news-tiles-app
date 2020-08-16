@@ -13,8 +13,10 @@ export const environment = {
   },
   url:{
    news:"http://newsapi.org/v2",
-   weather:"https://api.openweathermap.org/data/2.5"//onecall?lat=20.2620425&lon=85.81594989999999&&units=metric&appid=20c0fa8665afa77aaf782456eaaa7550"
-   //weather:"https://api.openweathermap.org/data"
+   // This is to be used when in mem is disabled
+   //weather:"https://api.openweathermap.org/data/2.5"//onecall?lat=20.2620425&lon=85.81594989999999&&units=metric&appid=20c0fa8665afa77aaf782456eaaa7550"
+   // THis is when in mem is enabled
+   weather:"https://api.openweathermap.org/data"
   }
 };
 

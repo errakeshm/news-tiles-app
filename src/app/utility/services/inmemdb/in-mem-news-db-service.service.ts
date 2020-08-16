@@ -12,7 +12,7 @@ export class InMemNewsDbServiceService implements InMemoryDbService {
   createDb(){
     return { 
       "top-headlines":sportsdb,
-      "one-call": weatheronecall
+      "onecall": weatheronecall
     };
   }
 }

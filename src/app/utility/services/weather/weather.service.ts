@@ -20,7 +20,8 @@ export class WeatherService {
   getCurrentWeather(lat:number, lon:number):Observable<IWeatherModel>{
     let httpParams = new HttpParams();
     let url:string = `${this.openWeatherURL}/onecall`;
-    url = url+"?lat="+lat.toString()+"&lon="+lon.toString()+"&units=metric&appid="+this.apiKey
+    if(!this.appUtilityService.isInMemApiEnabled())
+      url = url+"?lat="+lat.toString()+"&lon="+lon.toString()+"&units=metric&appid="+this.apiKey
     /*httpParams.append("lat", lat.toString());
     httpParams.append("lon", lon.toString());
     httpParams.append("units","metric");
