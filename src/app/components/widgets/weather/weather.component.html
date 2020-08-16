@@ -5,14 +5,14 @@
         [@openClose]="isActive ? 'open' : 'close'">
         <div class="simple-weather-header">
             <div class="simple-weather-temperature">
-                <span class="text">{{weatherModel.current.temp}}</span><span class="wi wi-celsius"></span>
+                <span class="text">{{weatherModel.current.temp | round}}</span><span class="wi wi-celsius"></span>
             </div>
             <div class="simple-weather-general" >
                 <div class="simple-weather-general-mini">
-                    <span class="mini-icon wi wi-windy"></span> <span class="text">{{weatherModel.current.wind_speed}} m/s</span>
+                    <span class="mini-icon wi wi-windy"></span> <span class="text">{{weatherModel.current.wind_speed | round}} m/s</span>
                 </div>
                 <div class="simple-weather-general-mini">
-                    <span class="mini-icon wi wi-humidity"></span> <span class="text">{{weatherModel.current.humidity}}</span>
+                    <span class="mini-icon wi wi-humidity"></span> <span class="text">{{weatherModel.current.humidity | round}}</span>
                 </div>
             </div>
         </div>

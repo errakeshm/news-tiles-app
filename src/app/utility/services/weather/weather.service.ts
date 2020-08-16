@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IWeatherModel, IWeatherCondition, ICurrent } from 'src/app/components/api/weather.model';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { AppUtilityService } from '../common/app-utility.service';
 import { Observable } from 'rxjs';
 
@@ -19,11 +19,14 @@ export class WeatherService {
 
   getCurrentWeather(lat:number, lon:number):Observable<IWeatherModel>{
     let httpParams = new HttpParams();
-    let url:string = `${this.openWeatherURL}/one-call`;
-    httpParams.append("lat", lat.toString());
+    let url:string = `${this.openWeatherURL}/onecall`;
+    url = url+"?lat="+lat.toString()+"&lon="+lon.toString()+"&units=metric&appid="+this.apiKey
+    /*httpParams.append("lat", lat.toString());
     httpParams.append("lon", lon.toString());
-    httpParams.append("units","metrics");
+    httpParams.append("units","metric");
     httpParams.append("appid", this.apiKey);
-    return this.http.get<IWeatherModel>(url, { params : httpParams });
+    let httpHeaders = new HttpHeaders();
+    return this.http.get<IWeatherModel>(url, { headers:httpHeaders, params : httpParams });*/
+    return this.http.get<IWeatherModel>(url);
   }
 }
