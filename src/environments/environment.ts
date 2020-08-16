@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  isInMemApiEnabled:false,
+  isInMemApiEnabled:true,
   isDebugEnabled:true,
   // News API Key. Register and obtain the values
   keys:{
