@@ -7,7 +7,7 @@ import { IWeatherModel } from '../../api/weather.model';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
-  selector: 'weather-widget',
+  selector: 'ui-weather-widget',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
   animations:[

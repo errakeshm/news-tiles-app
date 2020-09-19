@@ -15,7 +15,7 @@
             </ul>
         </ui-sidebar>
         <ui-sidebar  [isActive]="featureButtonToggle['widget']" [position]="'right'" [panelStyle]="{'z-index':990}">
-            <weather-widget [configuration]="coordinates" [panelStyle]="{'height':'15rem', 'width':'16rem' }"></weather-widget>
+            <ui-weather-widget [configuration]="coordinates" [panelStyle]="{'height':'15rem', 'width':'16rem' }"></ui-weather-widget>
         </ui-sidebar>
         <router-outlet></router-outlet>
     </div>
